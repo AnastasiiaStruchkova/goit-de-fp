@@ -1,0 +1,60 @@
+[2026-05-09T12:54:46.860+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-09T12:54:46.876+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: goit_de_fp_pipeline.silver_to_gold manual__2026-05-09T12:54:12.258197+00:00 [queued]>
+[2026-05-09T12:54:46.880+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: goit_de_fp_pipeline.silver_to_gold manual__2026-05-09T12:54:12.258197+00:00 [queued]>
+[2026-05-09T12:54:46.880+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-05-09T12:54:46.885+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): silver_to_gold> on 2026-05-09 12:54:12.258197+00:00
+[2026-05-09T12:54:46.888+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2922) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-05-09T12:54:46.889+0000] {standard_task_runner.py:63} INFO - Started process 2923 to run task
+[2026-05-09T12:54:46.889+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'goit_de_fp_pipeline', 'silver_to_gold', 'manual__2026-05-09T12:54:12.258197+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/project_solution.py', '--cfg-path', '/tmp/tmpuci7o5xe']
+[2026-05-09T12:54:46.890+0000] {standard_task_runner.py:91} INFO - Job 15: Subtask silver_to_gold
+[2026-05-09T12:54:46.912+0000] {task_command.py:426} INFO - Running <TaskInstance: goit_de_fp_pipeline.silver_to_gold manual__2026-05-09T12:54:12.258197+00:00 [running]> on host 9a56532f3498
+[2026-05-09T12:54:46.949+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de_student' AIRFLOW_CTX_DAG_ID='goit_de_fp_pipeline' AIRFLOW_CTX_TASK_ID='silver_to_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-05-09T12:54:12.258197+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-05-09T12:54:12.258197+00:00'
+[2026-05-09T12:54:46.950+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-09T12:54:46.956+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-09T12:54:46.957+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/scripts/silver_to_gold.py']
+[2026-05-09T12:54:46.961+0000] {subprocess.py:86} INFO - Output:
+[2026-05-09T12:54:47.272+0000] {subprocess.py:93} INFO - /home/***/.local/lib/python3.12/site-packages/pyspark/bin/load-spark-env.sh: line 68: ps: command not found
+[2026-05-09T12:54:48.008+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-05-09T12:54:48.009+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-05-09T12:54:48.140+0000] {subprocess.py:93} INFO - 26/05/09 12:54:48 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-05-09T12:54:54.145+0000] {subprocess.py:93} INFO - [Етап 3] Зчитування silver/athlete_bio
+[2026-05-09T12:54:54.147+0000] {subprocess.py:93} INFO - [Етап 3] Зчитування silver/athlete_event_results
+[2026-05-09T12:54:54.148+0000] {subprocess.py:93} INFO - [Етап 3] athlete_bio після фільтрації: 104153 рядків
+[2026-05-09T12:54:54.148+0000] {subprocess.py:93} INFO - [Етап 3] Join athlete_events з athlete_bio за athlete_id
+[2026-05-09T12:54:54.149+0000] {subprocess.py:93} INFO - [Етап 3] Рядків після join: 226872
+[2026-05-09T12:54:54.149+0000] {subprocess.py:93} INFO - [Етап 3] Агрегація: середній зріст і вага по sport/medal/sex/country_noc
+[2026-05-09T12:54:54.149+0000] {subprocess.py:93} INFO - [Етап 3] Зразок результату (gold/avg_stats):
+[2026-05-09T12:54:54.150+0000] {subprocess.py:93} INFO - +------------------+------+------+-----------+----------+----------+--------------------------+
+[2026-05-09T12:54:54.150+0000] {subprocess.py:93} INFO - |sport             |medal |sex   |country_noc|avg_height|avg_weight|timestamp                 |
+[2026-05-09T12:54:54.150+0000] {subprocess.py:93} INFO - +------------------+------+------+-----------+----------+----------+--------------------------+
+[2026-05-09T12:54:54.151+0000] {subprocess.py:93} INFO - |Canoe Sprint      |Bronze|Male  |POL        |182.38    |82.38     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.151+0000] {subprocess.py:93} INFO - |Equestrian Jumping|Gold  |Male  |USA        |182.11    |71.67     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.151+0000] {subprocess.py:93} INFO - |Athletics         |Bronze|Male  |LTU        |200.0     |130.0     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.152+0000] {subprocess.py:93} INFO - |Ice Hockey        |Bronze|Male  |CZE        |185.28    |89.84     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.152+0000] {subprocess.py:93} INFO - |Judo              |Silver|Female|JPN        |159.56    |62.56     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.152+0000] {subprocess.py:93} INFO - |Shooting          |Silver|Male  |FRA        |179.6     |75.8      |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.152+0000] {subprocess.py:93} INFO - |Badminton         |Silver|Male  |INA        |174.17    |70.67     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.153+0000] {subprocess.py:93} INFO - |Judo              |NULL  |Male  |USA        |179.43    |84.79     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.153+0000] {subprocess.py:93} INFO - |Athletics         |NULL  |Male  |DOM        |174.1     |68.03     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.153+0000] {subprocess.py:93} INFO - |Sailing           |NULL  |Male  |ITA        |179.26    |78.32     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.153+0000] {subprocess.py:93} INFO - |Basketball        |NULL  |Male  |PHI        |181.3     |76.22     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.153+0000] {subprocess.py:93} INFO - |Athletics         |NULL  |Female|KGZ        |173.0     |58.05     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.154+0000] {subprocess.py:93} INFO - |Football          |NULL  |Male  |UAE        |175.5     |70.05     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.154+0000] {subprocess.py:93} INFO - |Table Tennis      |NULL  |Female|TPE        |163.56    |55.69     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.154+0000] {subprocess.py:93} INFO - |Artistic Swimming |NULL  |Female|AUS        |166.88    |56.45     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.154+0000] {subprocess.py:93} INFO - |Fencing           |NULL  |Female|ITA        |169.45    |60.73     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.154+0000] {subprocess.py:93} INFO - |Golf              |NULL  |Female|DEN        |173.67    |69.67     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.155+0000] {subprocess.py:93} INFO - |Weightlifting     |NULL  |Female|ITA        |155.67    |53.0      |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.155+0000] {subprocess.py:93} INFO - |Swimming          |NULL  |Female|KGZ        |173.67    |61.27     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.155+0000] {subprocess.py:93} INFO - |Alpine Skiing     |NULL  |Male  |RUS        |179.59    |82.21     |2026-05-09 12:54:51.371573|
+[2026-05-09T12:54:54.155+0000] {subprocess.py:93} INFO - +------------------+------+------+-----------+----------+----------+--------------------------+
+[2026-05-09T12:54:54.156+0000] {subprocess.py:93} INFO - only showing top 20 rows
+[2026-05-09T12:54:54.156+0000] {subprocess.py:93} INFO - 
+[2026-05-09T12:54:54.156+0000] {subprocess.py:93} INFO - [Етап 3] Запис у /opt/***/data/gold/avg_stats
+[2026-05-09T12:54:54.156+0000] {subprocess.py:93} INFO - [Етап 3] ✅ Дані збережено у /opt/***/data/gold/avg_stats
+[2026-05-09T12:54:54.644+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-09T12:54:54.645+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-09T12:54:54.659+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=goit_de_fp_pipeline, task_id=silver_to_gold, run_id=manual__2026-05-09T12:54:12.258197+00:00, execution_date=20260509T125412, start_date=20260509T125446, end_date=20260509T125454
+[2026-05-09T12:54:54.689+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-05-09T12:54:54.698+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-05-09T12:54:54.699+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

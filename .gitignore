@@ -1,0 +1,5 @@
+     1	data/
+     2	logs/
+     3	__pycache__/
+     4	*.pyc
+     5	*.parquet
