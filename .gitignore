@@ -2,4 +2,6 @@
      2	logs/
      3	__pycache__/
      4	*.pyc
-     5	*.parquet
+     5	.DS_Store
+     6	*.crc
+     7	plugins/
